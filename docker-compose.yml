@@ -1,0 +1,20 @@
+version: '2'
+services:
+  moby:
+    build: ./Asterisk
+    image: guglio/asterisk
+    container_name: asteriskTIM
+    environment:
+      - ROUTER_IP=192.168.1.1
+      - USERNAME=**04
+      - PASSWORD=
+    network_mode: "host"
+    restart: always
+
+  fastagi:
+    build: ./FastAGI
+    image: guglio/fastagi
+    container_name: fastagi
+    ports:
+        - "127.0.0.1:4573:4573"
+    restart: always

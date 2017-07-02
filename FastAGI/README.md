@@ -1,0 +1,1 @@
+Il **Dockerfile** crea un container basato su _OpenJDK_ eseguendovi all' interno _out/artifacts/app/app.js_

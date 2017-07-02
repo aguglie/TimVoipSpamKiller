@@ -1,0 +1,4 @@
+[from-pstn]
+exten => s,1,Agi(agi://127.0.0.1:4573/checkCaller.agi)
+exten => s,2,Wait(10)
+exten => s,n,Goto(2)

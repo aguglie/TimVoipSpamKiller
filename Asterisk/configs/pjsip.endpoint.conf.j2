@@ -1,0 +1,20 @@
+[Telecom]
+type=endpoint
+transport=0.0.0.0-udp
+context=from-pstn
+disallow=all
+allow=ulaw,alaw,gsm,g726
+aors=Telecom
+language=it
+outbound_auth=Telecom
+from_domain=modemtelecom.homenet.telecomitalia.it
+from_user={{ USERNAME }}
+t38_udptl=no
+t38_udptl_ec=none
+fax_detect=no
+t38_udptl_nat=no
+dtmf_mode=auto
+
+[dpma_endpoint]
+type=endpoint
+context=dpma-invalid

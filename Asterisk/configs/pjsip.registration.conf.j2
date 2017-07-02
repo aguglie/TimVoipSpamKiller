@@ -1,0 +1,10 @@
+[Telecom]
+type=registration
+transport=0.0.0.0-udp
+outbound_auth=Telecom
+retry_interval=60
+max_retries=10
+expiration=3600
+auth_rejection_permanent=yes
+server_uri=sip:{{ ROUTER_IP }}:5065
+client_uri=sip:{{ USERNAME }}@{{ ROUTER_IP }}:5065
