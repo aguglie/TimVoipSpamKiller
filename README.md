@@ -1,6 +1,5 @@
 # **VoIP Spam Killer**
 
-## Descrizione
 Semplice script per liberarsi dei fastidiosi callcenters su **linea fissa TIM VoIP.**
 
 Se il numero chiamante appartiene alla _blocklist Tellows_, la chiamata viene rifiutata.
@@ -36,9 +35,7 @@ Dopo qualche secondo il router risponderà con un XML contenente i dati cercati
 ```
 
 ### Lanciare i Container Docker
-E' necessario un PC con SO **Linux**; 
-
-_Su macOS e Windows il router TIM non vi farà fare il login dato che la Docker Machine gira in una VM con differente subnet._
+E' necessario un PC con SO **Linux** _(più info a piè pagina)_
 
 Creiamo un file **docker-compose.yml** sostituendo USERNAME e PASSWORD con quelle ricevute dal router:
 ```yaml
@@ -65,7 +62,7 @@ services:
 ```
 
 
-Ora basta solo far partire la VM:
+Ora basta solo avviare il container:
 ```bash
 docker-compose up -d
 ```
@@ -74,3 +71,8 @@ docker-compose up -d
 Utilizzare Java per fare un semplice controllo online è molto dispendioso in termini di risorse;
 
 Si potrebbe eliminare la dipendenza da Java perdendo la possibilità di aggiungere facilmente nuove funzionalità al progetto
+
+## Known Issues
+Il router TIM rifiuta tutte le connessioni in SIP da parte di clients che non sono nella sua stessa rete. E' quindi necessario avviare il container di Asterisk in __network_mode: "host"__ all'interno di un PC nella stessa sottorete del router.
+
+Su Windows e macOS la Docker Machine gira su una VM la cui interfaccia di rete **è in NAT** con quella del pc host. Per questo motivo non è possibile lanciare il container su una macchina che non sia Linux.
