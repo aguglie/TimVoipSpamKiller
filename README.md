@@ -71,8 +71,3 @@ docker-compose up -d
 Utilizzare Java per fare un semplice controllo online è molto dispendioso in termini di risorse;
 
 Si potrebbe eliminare la dipendenza da Java perdendo la possibilità di aggiungere facilmente nuove funzionalità al progetto
-
-## Known Issues
-Il router TIM rifiuta tutte le connessioni in SIP da parte di clients che non sono nella sua stessa rete. E' quindi necessario avviare il container di Asterisk in __network_mode: "host"__ all'interno di un PC nella stessa sottorete del router.
-
-Su Windows e macOS la Docker Machine gira su una VM la cui interfaccia di rete **è in NAT** con quella del pc host. Per questo motivo non è possibile lanciare il container su una macchina che non sia Linux.
